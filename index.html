@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bunny Tic Tac Toe</title>
+    <link rel="stylesheet" href="./time.css" />
+    <link rel="stylesheet" href="./estilos.css" />
+  </head>
+  <body>
+    <aside class="aside">
+      <h1 class="h1aside">bunny Tic Tac Toe</h1>
+      <p class="asidep">
+        El juego Tic Tac Toe es conocido en América Latina con diferentes
+        nombres según el país. En algunos lugares se le llama "tres en raya", en
+        otros "gato", "triqui", "totito" o "cuadritos".
+      </p>
+      <p class="asidep2">
+        ¡El juego es muy sencillo de jugar.<br> Aquí tienes las reglas básicas:
+        <ol class="listadereglas">
+          <li>
+        El
+        juego se juega en una cuadrícula de 3x3.
+          </li>
+          <li>
+        Dos jugadores participan,
+        uno es X y el otro es O.
+          </li>
+          <li>
+        Los jugadores se turnan para colocar su
+        símbolo en una casilla vacía.
+          </li>
+          <li>
+        El objetivo es conseguir tener tres de
+        tus símbolos en línea de forma horizontal, vertical o diagonal.
+          </li>
+          <li>
+        Si se
+        llenan todas las casillas y no hay un ganador, se considera empate.
+          </li>
+          <li>
+            ¡Eso
+        es todo! Ahora estás listo para disfrutar del juego.
+        ¡Diviértete con bunny Tic Tac Toe!
+          </li>
+        </ol>    
+      </p>
+    </aside>
+    <div class="game">
+      <article class="game__message">
+        <h2>
+          El turno es para
+          <span class="game__turn"></span>
+        </h2>
+        <p class="agregar">
+          Victorias de X: <span class="game__score-x">0</span>
+        </p>
+        <p class="agregar">
+          Victorias de O: <span class="game__score-o">0</span>
+        </p>
+        <p class="agregar">Empates: <span class="game__score-tie">0</span></p>
+        <button class="boton">Reiniciar Valores</button>
+      </article>
+
+      <section class="game__board">
+        <p>Hola</p>
+      </section>
+
+      <!-- crea el elemento table para mostrar las victorias -->
+      <table class="game__table">
+        <!-- crea el encabezado de la tabla -->
+        <thead>
+          <!-- crea la fila del encabezado -->
+          <tr>
+            <!-- crea las columnas del encabezado -->
+            <th>X</th>
+            <th>O</th>
+            <th>Empates</th>
+          </tr>
+        </thead>
+        <!-- crea el cuerpo de la tabla -->
+        <tbody>
+          <!-- crea la fila del cuerpo -->
+          <tr>
+            <!-- crea las columnas del cuerpo -->
+            <td><span class="game__score-x">0</span></td>
+            <td><span class="game__score-o">0</span></td>
+            <td><span class="game__score-tie">0</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="container">
+      <div class="timer-display">00 : 00 : 00 : 000</div>
+      <div class="buttons">
+        <button id="start-timer">Comenzar</button>
+        <button id="pause-timer">Pausar</button>
+        <button id="reset-timer">Reiniciar</button>
+      </div>
+    </div>
+
+    <section class="endgame">
+      <div class="endgame__show">
+        <h1 class="endgame__result"></h1>
+        <p>¿Quieres volver a jugar?</p>
+        <button class="endgame__button">Reiniciar el juego</button>
+      </div>
+    </section>
+    <script src="./time.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

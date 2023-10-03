@@ -1,0 +1,324 @@
+:root{
+    --white: white;
+    --color1: #f9c80e; /* amarillo */
+    --color2: #00c434; /* verde */
+    --color3: #f86624; /* naranja */
+    /* [Paleta 1]: Esta paleta usa tonos de amarillo, verde y blanco para crear un contraste con el fondo. El amarillo y el verde también se relacionan con las flores que tiene el conejo en su sudadera. */
+    scroll-behavior: smooth;
+}
+
+*, ::before, ::after{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("./1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 100vh;
+    font-family: Arial;
+    color: white;
+}
+.game__message h2{
+    display: flex; /* usa flexbox para alinear los elementos */
+    flex-direction: column; /* organiza los elementos en una columna */
+    align-items: center; /* centra los elementos horizontalmente */
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: var(--color1); /* usa una variable CSS para el color naranja */
+    text-shadow: 0 0 2px black;
+    letter-spacing: .1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic; 
+    font-size: clamp(1.5rem, 3vw, 2rem); /* usa clamp para ajustar el tamaño de la fuente */
+}
+.game__turn{
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: var(--color2);
+    text-shadow: 0 0 2px black;
+    letter-spacing: .1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+}
+
+.game{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    gap: 1rem;
+    place-content: center;
+}
+
+.game__board{
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.cell{
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    display: grid;
+    place-items: center;
+    grid-template-areas: "draw";
+    cursor: pointer;
+    border: 2px solid var(--color1); /* cambia el color del borde a amarillo */
+
+}
+
+td span {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.circle::after{
+    content: "";
+    grid-area: draw;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 10px solid white;
+    animation: show .3s;
+    border: 10px solid var(--color2); /* cambia el color del círculo a verde */
+}
+
+.cross::after{
+    content: "";
+    grid-area: draw;
+    display: block;
+    width: 10px;
+    height: 70px;
+    background-color: var(--color3);
+    transform: rotate(45deg);
+    border-radius: 10px;
+    animation: show-reverse .3s;
+}
+
+.cross::before{
+    content: "";
+    grid-area: draw;
+    display: block;
+    width: 10px;
+    height: 70px;
+    background-color: var(--color3);
+    transform: rotate(-45deg);
+    border-radius: 10px;
+    animation: show .3s;
+}
+
+@keyframes show {
+    0%{
+        transform: scale(0) rotate(-45deg);
+    }
+    100%{
+        transform: scale(1) rotate(-45deg);
+    }
+}
+
+@keyframes show-reverse {
+    0%{
+        transform: scale(0) rotate(45deg);
+    }
+    100%{
+        transform: scale(1) rotate(45deg);
+    }
+}
+
+.endgame{
+    background-color: #000000bc;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+
+    display: grid;
+    place-content: center;
+}
+
+.endgame__show{
+    display: grid;
+    gap: 1rem;
+    text-align: center;
+}
+
+.endgame__button{
+    font-weight: bold;
+    color: white;
+    padding: 1rem 2rem;
+    margin: 0 auto;
+    width: max-content;
+    border: none;
+    border-radius: 100px;
+    background-color: var(--color3); /* cambia el color del botón a naranja */
+
+}
+
+.show{
+    opacity: 1;
+    pointer-events: unset;
+}
+
+.agregar{
+        text-align: center;
+        display: flex; /* usa flexbox para alinear los elementos */
+        flex-direction: column; /* organiza los elementos en una columna */
+        align-items: center; /* centra los elementos horizontalmente */
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        color: var(--color3); /* usa una variable CSS para el color naranja */
+        text-shadow: 0 0 2px black;
+        letter-spacing: .1rem;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-style: italic; 
+        font-size: clamp(1rem, 2vw, 1.5rem); /* usa clamp para ajustar el tamaño de la fuente */
+}
+.game__score-x{
+    color: var(--color1);
+    font-weight: bold;
+    text-shadow: 0 0 2px black;
+    letter-spacing: .1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic; 
+	font-size : clamp(1rem,2vw,1.5rem);
+}
+.game__score-o{
+	color : var(--color1);
+	font-weight : bold ;
+	text-shadow : 0px 0px 2px black ;
+	letter-spacing : .1rem ;
+	font-family : 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+	font-style : italic ;
+	font-size : clamp(1rem,2vw,1.5rem);	
+}
+.game__score-tie {
+    color : var(--color1);
+	font-weight : bold ;
+	text-shadow : 0px 0px 2px black ;
+	letter-spacing : .1rem ;
+	font-family : 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+	font-style : italic ;
+	font-size : clamp(1rem,2vw,1.5rem);	
+
+}
+.game__table{
+	width :300px ;
+	margin : auto ;
+	border :2px solid var(--yellow) ;
+	border-collapse : collapse ;
+	text-align : center ;
+    background-color : var(--background) ;
+    font-family : 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    font-style : italic ;
+    font-size : clamp(1rem,2vw,1.5rem);
+    
+}
+.game__table th, .game__table td{
+	color : var(--white) ;
+	font-size :1.5rem ;
+	padding : .5rem ;
+	background-color : var(--background) ;
+    font-family : 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    font-style : italic ;
+}
+.boton{
+    font-weight: bold;
+    color: white;
+    padding: 1rem 2rem;
+    margin: 0 auto;
+    width: max-content;
+    border: none;
+    border-radius: 100px;
+    background-color: var(--color3); /* cambia el color del botón a naranja */
+    margin-left: 64px;
+    cursor: pointer;
+}
+
+.aside{
+    display: flex; /* usa flexbox para alinear los elementos */
+    flex-direction: column; /* organiza los elementos en una columna */
+    align-items: center; /* centra los elementos horizontalmente */
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    color: var(--color2); /* usa una variable CSS para el color naranja */
+    text-shadow: 0 0 2px black;
+    letter-spacing: .1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic; 
+    font-size: clamp(1rem, 2vw, 1.5rem); /* usa clamp para ajustar el tamaño de la fuente */
+    /* Posiciona el contenedor a la derecha del tablero */
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translateY(-50%);
+    gap: 10px;
+}
+.h1aside{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic ;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--color3);
+    text-shadow: 0 0 2px black;
+    letter-spacing: .1rem;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.3rem;
+}
+.asidep{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic ;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--color2);
+    text-shadow: 0 0 2px black;
+    letter-spacing: .1rem;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.3rem;
+}
+.listadereglas{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic ;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--color1);
+    text-shadow: 0 0 2px black;
+    letter-spacing: .1rem;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.3rem;
+
+}
+.asidep2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic ;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--color3);
+    text-shadow: 0 0 2px black;
+    letter-spacing: .1rem;
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.3rem;
+}

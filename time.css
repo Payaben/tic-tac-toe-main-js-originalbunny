@@ -1,0 +1,68 @@
+/* Estilo para el contenedor del reloj */
+.container {
+    /* Usa flexbox para alinear los elementos */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Posiciona el contenedor a la derecha del tablero */
+    position: absolute;
+    top: 50%;
+    right: 30%;
+    transform: translateY(-50%);
+    gap: 10px;
+  }
+  
+  /* Estilo para la pantalla del reloj */
+  .timer-display {
+    /* Color de fondo */
+    background-color: rgb(32, 210, 12);
+    /* Color del texto */
+    color: white;
+    /* Tipo de fuente */
+    font-family: "Courier New", Courier, monospace;
+    /* Tamaño de fuente */
+    font-size: 24px;
+    /* Alineación del texto */
+    font-weight: bold;
+    text-align: center;
+    /* Ancho del elemento */
+    width: 300px;
+    /* Altura del elemento */
+    height: 30px;
+    /* Borde redondeado */
+    border-radius: 10px;
+    /* Bordes */
+    border: none;
+  }
+  
+  /* Estilo para los botones del reloj */
+  .buttons {
+    /* Usa flexbox para alinear los elementos */
+    display: flex;
+    gap: 20px;
+  }
+  
+  .buttons button {
+    text-align: center;
+    /* Color de fondo */
+    background-color: var(--color3); /* usa una variable CSS para el color naranja */
+    /* Color del texto */
+    color: white;
+    /* Tipo de fuente */
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    /* Tamaño de fuente */
+    font-size: 18px;
+    /* Alineación del texto */
+    text-align: center;
+    /* Ancho del elemento */
+    width: 120px;
+    /* Altura del elemento */
+    height: 40px;
+    /* Borde redondeado */
+    border-radius: 10px;
+    /* Bordes */
+    border: none;
+    cursor: pointer;
+  }
+  
